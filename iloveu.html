@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Love between Us</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+
+<body>
+    <audio src="./music.mp3" autoplay="true" loop="loop"></audio>
+    <div id="back">
+        <div class="mask"></div>
+        <!-- 设置展示的图片，github pages不能有后台程序只能一条一条手动添加了 囧 -->
+        <div id="carousel"  class="carousel slide carousel-fade carousel-position">
+            <div class="carousel-inner" style="width: 100%;height: 100%;" id="background">
+                <div class="item active" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background:url(./img/IMG_0010.JPG); background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0008.JPG) ;background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0018.jpg) ;background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0014.jpg) ;background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0075.JPG);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0088.JPG);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_4190.JPG);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_9024.JPG);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0106.jpg);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0121.JPG);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0131.JPG);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0408.jpg);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0594.jpg);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0450.jpg);background-size:50% 50%;"></div>
+                </div>
+                <div class="item" style="width: 100%;height: 100%;">
+                    <div style="width: 100%;height: 100%;background-image: url(./img/IMG_0237.jpg);background-size:50% 50%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal show" style="top:24%;">
+        <div class="modal-dialog" style="opacity: .9">
+            <div class="modal-content" style="opacity:.85">
+                <div class="modal-header">
+                    <h1 class="text-center" style="color: #A94442;font-family: 'JournalRegular', Arial, sans-serif;font-size: 7rem;">the times we together</h1>
+                    <p class="text-center small-title">Michael & Avan</p>
+                    <p class="text-center small-title">LOVING ON THE WAY</p>
+                </div>
+                <div class="modal-body text-center" style="line-height: 1.5rem;font-family: 'JournalRegular', Arial, sans-serif;font-size: 3rem;">
+                    <p>
+                        <span id="day" class="time-font"></span><span style="color:#A94442">/&nbsp;</span><span id="hour" class="time-font"></span><span style="color:#A94442">/&nbsp;</span><span id="minute" class="time-font"></span><span style="color:#A94442">/&nbsp;</span><span id="second" class="time-font"></span>
+                    </p>
+                    <p>
+                        days/hours/min/sec
+                    </p>
+                    <p class="text-center" style="color:#A94442;font-size: 17px" id="say"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/count-time.js"></script>
+    <script>
+    $(function() {
+        //设置起始日期
+        countTime('2018/09/02 00:00', 'day', 'hour', 'minute', 'second');
+        var days = $('#day').text();
+
+        // 设置标题
+        if (parseInt(days / 365) != 0) {
+            $(document).attr("title", "在一起" + parseInt(days / 365) + "年,感谢相伴。");
+        } else if (parseInt(days / 30) != 0) {
+            $(document).attr("title", "在一起" + parseInt(days / 30) + "个月,感谢相伴。");
+        } else
+            $(document).attr("title", "在一起" + days + "天,感谢相伴。");
+
+        //设置每一张图片对应的文字
+        var says = new Array(
+            "不知道为什么，就是很喜欢这张",
+            "正式跟痘痘宣战的那天，感谢陪吃的Brunch",
+            "崇明岛，阳光下的你",
+            "崇明岛，很可惜没摘成草莓，但是你站在花海，我给你拍照，也挺好",
+            "华谊影视城，虽然坑爹 但还是因你有了乐趣",
+            "华谊影视城，好奇心臭死猫",
+            "华谊影视城，树干子抱着可还舒服",
+            "华谊影视城，难得正儿八经拍个照",
+            "金鸡湖，不知道为什么，那天你就坐在那，看着金鸡湖，说很喜欢，我拍下了这张照片，然后有点想哭",
+            "奥特莱斯，人比猪儿瘦啊",
+            "前塘老街，花儿你为社么那样红",
+            "芜湖，小家碧玉的你",
+            "你家，勤劳贤惠的小项，一年难得几回尝",
+            "浦东江边，你说很难得见到上海有这么美的景色，那天小章很骄傲，果然没介绍错",
+            "陈绮贞演唱会，屋檐和天空，流星和霓虹，打开天空看见狮子座，生日快乐，小狮子！！"
+        );
+
+
+        var start = function() {
+            var index = 0;
+            var rate = 6000;
+            $('#say').text(says[(index++) % says.length]);
+         	var _play = function () {
+         		$('#say').hide();
+                $('#say').text(says[(index++) % says.length]);
+                $('#say').fadeToggle();
+                $('#carousel').carousel('next');
+         	};
+            setInterval(_play, rate);
+        }();
+
+    });
+    </script>
+</body>
+
+</html>
